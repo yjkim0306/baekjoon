@@ -13,7 +13,7 @@ int main()
 
     while(q--)
     {
-        int a, b;
+        long long a, b;
         cin >> a >> b;
         if(a * 2 <= b && b % a == 0)
             cout << "1\n";
