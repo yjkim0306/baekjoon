@@ -8,6 +8,7 @@ int board[9][9];
 vector<pair<int, int> > v;
 int cnt = 0;
 bool complete = false;
+
 bool check(pair<int, int> p)
 {
     int x = p.first / 3;
@@ -17,7 +18,7 @@ bool check(pair<int, int> p)
         if(board[p.first][i] == board[p.first][p.second] && i != p.second)
             return false;
         if(board[i][p.second] == board[p.first][p.second] && i != p.first)
-            return true;
+            return false;
     }
     for(int i = 3 * x; i < 3 * x + 3; i++)
     {
@@ -84,6 +85,6 @@ int main()
         }
     }
     sudoku(0);
-    
+
     return 0;
 }
