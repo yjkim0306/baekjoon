@@ -1,40 +1,45 @@
 // 숨바꼭질 3
 #include <iostream>
-#include <deque>
+#include <queue>
 using namespace std;
 
-int n, k;
+int n, k, weight;
 int visited[100001];
+int minWeight = 1000000;
 
-int bfs()
+void bfs()
 {
-    deque<int> dq;
-    dq.push_back(n);
-    visited[n] = 1;
-    while(!dq.empty())
+    queue<int> q;
+    q.push(n);
+    visited[n] = 0;
+
+    while(!q.empty())
     {
-        int x = dq.front();
-        dq.pop_front();
+        auto current = q.front();
+        q.pop();
 
-        if(x == k)
-            return visited[k] - 1;
-            
-        if(x * 2 < 100001 && !visited[x * 2])
+        if(current == k)
         {
-            dq.push_front(x * 2);
-            visited[x * 2] = visited[x];
+            minWeight = visited[current];
+            return;
         }
 
-        if(x + 1 < 100001 && !visited[x + 1])
+        if(current * 2 < 100001 && visited[current * 2] > visited[current])
         {
-            dq.push_back(x + 1);
-            visited[x + 1] = visited[x] + 1;
+            visited[current * 2] = visited[current];
+            q.push(current * 2);
         }
 
-        if(x - 1 >= 0 && !visited[x - 1])
+        if(current + 1 < 100001 && visited[current + 1] > visited[current] + 1)
         {
-            dq.push_back(x - 1);
-            visited[x - 1] = visited[x] + 1;
+            visited[current + 1] = visited[current] + 1;
+            q.push(current + 1);
+        }
+
+        if(current - 1 >= 0 && visited[current - 1] > visited[current] + 1)
+        {
+            visited[current - 1] = visited[current] + 1;
+            q.push(current - 1);
         }
     }
 }
@@ -46,7 +51,11 @@ int main()
     cout.tie(NULL);
     
     cin >> n >> k;
-    cout << bfs() << "\n";
+    for(int i = 0; i < 100001; i++)
+        visited[i] = 1000000;
+    bfs();
+
+    cout << minWeight << "\n";
 
     return 0;
 }
