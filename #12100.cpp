@@ -7,7 +7,7 @@ using namespace std;
 int n, ans;
 int map[20][20];
 int c_map[20][20];
-int select[5];
+int direct[5];
 bool visited[20][20];
 
 void copy_map()
@@ -314,7 +314,7 @@ void simulation()
 {
     for(int i = 0; i < 5; i++)
     {
-        int direction = select[i];
+        int direction = direct[i];
         switch(direction)
         {
             case 0:
@@ -346,7 +346,7 @@ void direction_select(int idx, int cnt)
 
     for(int i = 0; i < 4; i++)
     {
-        select[cnt] = i;
+        direct[cnt] = i;
         direction_select(i, cnt + 1);
     }
 }
