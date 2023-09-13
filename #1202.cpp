@@ -9,7 +9,7 @@ int n; // 보석 수
 int k; // 가방 수
 pair<int, int> v_jewerly[300001];
 int v_bag[300001];
-priority_queue<int, vector<int>, less<int>> pq;
+priority_queue<int, vector<int>, less<int> > pq;
 
 long long solve() 
 {
@@ -32,7 +32,7 @@ long long solve()
             pq.pop();
         }
     }
-    
+
     return sum;
 }
 
