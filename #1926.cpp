@@ -40,7 +40,8 @@ int main()
 
     for(int i = 0; i < n; i++)
     {
-        for(int j = 0; j < m; j++) cin >> graph[i][j];
+        for(int j = 0; j < m; j++) 
+            cin >> graph[i][j];
     }
     int cnt = 0;
     for(int i = 0; i < n; i++)
@@ -61,8 +62,10 @@ int main()
     
     cout << cnt << "\n";
 
-    if(cnt == 0) cout << 0 << "\n";
-    else cout << v[0] << "\n";
+    if(cnt == 0) 
+        cout << 0 << "\n";
+    else 
+        cout << v[0] << "\n";
 
     return 0;
 }
