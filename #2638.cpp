@@ -78,8 +78,8 @@ int main()
 				int ny = y + dy[i];
 				
 				if(arr[nx][ny] == 0)
-					dfs(nx,ny);
-			}
+					dfs(nx, ny);
+			} 
 		}
 		
 		ans++;
