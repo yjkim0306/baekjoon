@@ -38,7 +38,7 @@ int main()
 
     if(m.size() % 2 != 0)
         ans += m[m.size() - 1];
-    for(int i = 0; i < (int)m.size() - 1; i++)
+    for(int i = 0; i < (int)m.size() - 1; i+= 2)
         ans += m[i] * m[i + 1];
 
     cout << ans << "\n";
