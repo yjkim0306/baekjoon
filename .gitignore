@@ -1,9 +1,8 @@
-#11403
-#11404
 test.c
 test.cpp
 test.py
-c_cpp_properties.json
-launch.json
-settings.json
-.DS_Store
+test.java
+test.class
+template.cpp
+template.c
+.vscode
