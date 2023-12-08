@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-long long factorial(register long long n)
+long long factorial(long long n)
 {
     if(n < 2)
         return 1;
